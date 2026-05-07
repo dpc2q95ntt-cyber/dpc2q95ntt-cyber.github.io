@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maison Drago &mdash; Barbier</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Bebas+Neue&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+–noir: #0a0806;
+–creme: #f5f0e8;
+–or: #c9a84c;
+–gris: #1e1a16;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+background: #0a0806;
+color: #f5f0e8;
+font-family: ‘DM Sans’, sans-serif;
+font-weight: 300;
+overflow-x: hidden;
+}
+
+/* NAV */
+nav {
+position: fixed;
+top: 0; left: 0; right: 0;
+z-index: 100;
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 24px 48px;
+background: #0a0806;
+border-bottom: 1px solid rgba(201,168,76,0.15);
+}
+
+.nav-logo {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: 22px;
+letter-spacing: 4px;
+color: #c9a84c;
+}
+
+.nav-links { display: flex; gap: 40px; list-style: none; }
+
+.nav-links a {
+color: #f5f0e8;
+text-decoration: none;
+font-size: 12px;
+letter-spacing: 3px;
+text-transform: uppercase;
+opacity: 0.7;
+transition: opacity 0.3s, color 0.3s;
+}
+
+.nav-links a:hover { opacity: 1; color: #c9a84c; }
+
+/* HERO */
+.hero {
+min-height: 100vh;
+background: #0a0806;
+display: flex;
+align-items: center;
+padding: 120px 48px 80px;
+}
+
+.hero-tag {
+font-size: 11px;
+letter-spacing: 5px;
+text-transform: uppercase;
+color: #c9a84c;
+margin-bottom: 24px;
+display: flex;
+align-items: center;
+gap: 16px;
+}
+
+.hero-tag::before {
+content: ‘’;
+display: block;
+width: 40px;
+height: 1px;
+background: #c9a84c;
+}
+
+h1 {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: clamp(72px, 10vw, 140px);
+line-height: 0.9;
+letter-spacing: 2px;
+margin-bottom: 32px;
+color: #f5f0e8;
+}
+
+h1 em {
+font-family: ‘Cormorant Garamond’, serif;
+font-style: italic;
+font-weight: 300;
+color: #c9a84c;
+display: block;
+font-size: 0.65em;
+letter-spacing: 4px;
+}
+
+.hero-desc {
+font-size: 15px;
+line-height: 1.8;
+color: #f5f0e8;
+opacity: 0.8;
+max-width: 420px;
+margin-bottom: 48px;
+}
+
+.hero-cta {
+display: inline-flex;
+align-items: center;
+gap: 16px;
+background: #c9a84c;
+color: #0a0806;
+text-decoration: none;
+padding: 18px 40px;
+font-size: 11px;
+letter-spacing: 3px;
+text-transform: uppercase;
+font-weight: 400;
+transition: all 0.3s;
+}
+
+.hero-cta:hover { background: #e8d5a3; }
+
+/* DIVIDER */
+.divider {
+background: #0a0806;
+display: flex;
+align-items: center;
+gap: 24px;
+padding: 0 48px;
+height: 80px;
+}
+
+.divider::before, .divider::after {
+content: ‘’;
+flex: 1;
+height: 1px;
+background: rgba(201,168,76,0.3);
+}
+
+.divider-icon { font-size: 18px; color: #c9a84c; }
+
+/* SERVICES */
+.section-services {
+background: #0a0806;
+padding: 80px 48px;
+}
+
+.section-label {
+font-size: 11px;
+letter-spacing: 5px;
+text-transform: uppercase;
+color: #c9a84c;
+margin-bottom: 16px;
+}
+
+.section-title {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: clamp(36px, 5vw, 64px);
+font-weight: 300;
+line-height: 1.1;
+margin-bottom: 60px;
+color: #f5f0e8;
+}
+
+.services-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+gap: 2px;
+}
+
+.service-card {
+background: #1e1a16;
+padding: 48px 36px;
+position: relative;
+overflow: hidden;
+transition: background 0.3s;
+}
+
+.service-card::after {
+content: ‘’;
+position: absolute;
+bottom: 0; left: 0;
+width: 100%; height: 2px;
+background: #c9a84c;
+transform: scaleX(0);
+transform-origin: left;
+transition: transform 0.4s;
+}
+
+.service-card:hover::after { transform: scaleX(1); }
+.service-card:hover { background: #252019; }
+
+.service-num {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: 48px;
+color: rgba(201,168,76,0.2);
+line-height: 1;
+margin-bottom: 16px;
+}
+
+.service-name {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 24px;
+color: #f5f0e8;
+margin-bottom: 12px;
+}
+
+.service-desc {
+font-size: 13px;
+color: #f5f0e8;
+opacity: 0.7;
+line-height: 1.7;
+margin-bottom: 24px;
+}
+
+.service-price {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: 28px;
+color: #c9a84c;
+letter-spacing: 2px;
+}
+
+/* ABOUT */
+.section-about {
+background: #0a0806;
+padding: 100px 48px;
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 80px;
+align-items: center;
+}
+
+.about-visual { position: relative; }
+
+.about-box {
+background: #1e1a16;
+aspect-ratio: 3/4;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.about-box-inner {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: 120px;
+color: rgba(201,168,76,0.1);
+line-height: 1;
+text-align: center;
+}
+
+.about-badge {
+position: absolute;
+bottom: -20px; right: -20px;
+width: 120px; height: 120px;
+background: #c9a84c;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+}
+
+.about-badge-num {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: 42px;
+color: #0a0806;
+line-height: 1;
+}
+
+.about-badge-text {
+font-size: 9px;
+letter-spacing: 2px;
+text-transform: uppercase;
+color: #0a0806;
+opacity: 0.7;
+}
+
+.about-text p {
+font-size: 15px;
+line-height: 1.9;
+color: #f5f0e8;
+opacity: 0.8;
+margin-bottom: 24px;
+}
+
+.about-signature {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 36px;
+font-style: italic;
+color: #c9a84c;
+margin-top: 32px;
+}
+
+/* HORAIRES */
+.section-horaires {
+background: #1e1a16;
+padding: 80px 48px;
+}
+
+.horaires-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+margin-top: 48px;
+}
+
+.horaire-item {
+padding: 32px;
+border-left: 1px solid rgba(201,168,76,0.15);
+text-align: center;
+}
+
+.horaire-day {
+font-size: 11px;
+letter-spacing: 3px;
+text-transform: uppercase;
+color: #f5f0e8;
+opacity: 0.5;
+margin-bottom: 8px;
+}
+
+.horaire-time {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 20px;
+color: #c9a84c;
+}
+
+.horaire-closed {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 20px;
+color: #f5f0e8;
+opacity: 0.25;
+font-style: italic;
+}
+
+/* CONTACT */
+.section-contact {
+background: #0a0806;
+padding: 100px 48px;
+text-align: center;
+}
+
+.contact-title {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: clamp(48px, 8vw, 100px);
+letter-spacing: 4px;
+line-height: 0.9;
+margin-bottom: 48px;
+color: #f5f0e8;
+}
+
+.contact-title span { color: #c9a84c; }
+
+.contact-info {
+display: flex;
+justify-content: center;
+gap: 64px;
+flex-wrap: wrap;
+margin-bottom: 48px;
+}
+
+.contact-item-label {
+font-size: 10px;
+letter-spacing: 4px;
+text-transform: uppercase;
+color: #f5f0e8;
+opacity: 0.5;
+margin-bottom: 8px;
+}
+
+.contact-item-value {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 20px;
+color: #f5f0e8;
+}
+
+.btn-rdv {
+display: inline-flex;
+align-items: center;
+gap: 12px;
+border: 1px solid #c9a84c;
+color: #c9a84c;
+text-decoration: none;
+padding: 20px 56px;
+font-size: 11px;
+letter-spacing: 4px;
+text-transform: uppercase;
+background: transparent;
+transition: all 0.3s;
+}
+
+.btn-rdv:hover { background: #c9a84c; color: #0a0806; }
+
+/* FOOTER */
+footer {
+background: #0a0806;
+padding: 32px 48px;
+border-top: 1px solid rgba(201,168,76,0.15);
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+footer .logo {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: 18px;
+letter-spacing: 4px;
+color: #c9a84c;
+}
+
+footer p { font-size: 11px; color: #f5f0e8; opacity: 0.3; letter-spacing: 2px; }
+
+@media (max-width: 768px) {
+nav { padding: 20px 24px; }
+.nav-links { display: none; }
+.hero { padding: 100px 24px 60px; }
+.section-services { padding: 60px 24px; }
+.section-about { grid-template-columns: 1fr; padding: 60px 24px; gap: 60px; }
+.section-contact { padding: 60px 24px; }
+.contact-info { gap: 32px; }
+footer { padding: 24px; flex-direction: column; gap: 12px; text-align: center; }
+.divider { padding: 0 24px; }
+.section-horaires { padding: 60px 24px; }
+}
+</style>
+
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Maison Drago</div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">&Agrave; propos</a></li>
+    <li><a href="#horaires">Horaires</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div>
+    <div class="hero-tag">Barbier artisan &mdash; Paris</div>
+    <h1>L'art du<em>rasage</em>pr&eacute;cis</h1>
+    <p class="hero-desc">Un soin, une coupe, un moment. Maison Drago vous accueille dans un espace d&eacute;di&eacute; &agrave; l'&eacute;l&eacute;gance masculine depuis 2012.</p>
+    <a href="#contact" class="hero-cta">Prendre rendez-vous &rarr;</a>
+  </div>
+</section>
+
+<div class="divider"><span class="divider-icon">✦#10022;</span></div>
+
+<section class="section-services" id="services">
+  <div class="section-label">Nos prestations</div>
+  <div class="section-title">Ce que nous<br>faisons pour vous</div>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-num">01</div>
+      <div class="service-name">Coupe Homme</div>
+      <p class="service-desc">Coupe classique ou moderne, adapt&eacute;e &agrave; votre morphologie et votre style de vie.</p>
+      <div class="service-price">&Agrave; partir de 25&euro;</div>
+    </div>
+    <div class="service-card">
+      <div class="service-num">02</div>
+      <div class="service-name">Barbe & Rasage</div>
+      <p class="service-desc">Taille pr&eacute;cise, rasage au coupe-chou, baume et finition &agrave; l'ancienne.</p>
+      <div class="service-price">&Agrave; partir de 20&euro;</div>
+    </div>
+    <div class="service-card">
+      <div class="service-num">03</div>
+      <div class="service-name">Duo Complet</div>
+      <p class="service-desc">Coupe + barbe en une session. Le soin int&eacute;gral pour repartir impeccable.</p>
+      <div class="service-price">&Agrave; partir de 40&euro;</div>
+    </div>
+    <div class="service-card">
+      <div class="service-num">04</div>
+      <div class="service-name">Soin Visage</div>
+      <p class="service-desc">Masque, exfoliation, hydratation. La peau aussi m&eacute;rite une attention particuli&egrave;re.</p>
+      <div class="service-price">&Agrave; partir de 35&euro;</div>
+    </div>
+  </div>
+</section>
+
+<section class="section-about" id="about">
+  <div class="about-visual">
+    <div class="about-box">
+      <div class="about-box-inner">MD</div>
+    </div>
+    <div class="about-badge">
+      <div class="about-badge-num">12</div>
+      <div class="about-badge-text">ans d'exp.</div>
+    </div>
+  </div>
+  <div class="about-text">
+    <div class="section-label">Notre histoire</div>
+    <div class="section-title" style="font-size:clamp(28px,4vw,48px);margin-bottom:32px;">Un artisan,<br>une vision</div>
+    <p>Maison Drago est n&eacute;e d'une passion pour le m&eacute;tier de barbier transmis de p&egrave;re en fils. Ici, chaque client est re&ccedil;u avec soin, chaque coupe est un geste r&eacute;fl&eacute;chi.</p>
+    <p>Nous utilisons uniquement des produits s&eacute;lectionn&eacute;s pour leur qualit&eacute;, dans un espace pens&eacute; pour votre confort et votre d&eacute;tente.</p>
+    <div class="about-signature">Marco Drago</div>
+  </div>
+</section>
+
+<section class="section-horaires" id="horaires">
+  <div class="section-label">Planning</div>
+  <div class="section-title" style="font-size:clamp(28px,4vw,48px);margin-bottom:0;">Nos horaires</div>
+  <div class="horaires-grid">
+    <div class="horaire-item">
+      <div class="horaire-day">Lundi</div>
+      <div class="horaire-closed">Ferm&eacute;</div>
+    </div>
+    <div class="horaire-item">
+      <div class="horaire-day">Mardi &mdash; Vendredi</div>
+      <div class="horaire-time">9h &mdash; 19h</div>
+    </div>
+    <div class="horaire-item">
+      <div class="horaire-day">Samedi</div>
+      <div class="horaire-time">9h &mdash; 18h</div>
+    </div>
+    <div class="horaire-item">
+      <div class="horaire-day">Dimanche</div>
+      <div class="horaire-closed">Ferm&eacute;</div>
+    </div>
+  </div>
+</section>
+
+<section class="section-contact" id="contact">
+  <div class="contact-title">Prenez<br><span>rendez-vous</span></div>
+  <div class="contact-info">
+    <div>
+      <div class="contact-item-label">T&eacute;l&eacute;phone</div>
+      <div class="contact-item-value">01 23 45 67 89</div>
+    </div>
+    <div>
+      <div class="contact-item-label">Adresse</div>
+      <div class="contact-item-value">12 rue du Faubourg, Paris</div>
+    </div>
+    <div>
+      <div class="contact-item-label">Email</div>
+      <div class="contact-item-value">contact@maisondrago.fr</div>
+    </div>
+  </div>
+  <a href="tel:0123456789" class="btn-rdv">Appeler maintenant &rarr;</a>
+</section>
+
+<footer>
+  <div class="logo">Maison Drago</div>
+  <p>© 2026 &mdash; Tous droits r&eacute;serv&eacute;s</p>
+</footer>
+
+</body>
+</html>
